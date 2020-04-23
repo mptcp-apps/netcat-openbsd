@@ -865,8 +865,9 @@ that are already used by our Debian-specific patches.
 +	    "\t  [-m minttl] [-O length] [-P proxy_username] [-p source_port]\n"
  	    "\t  [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit] "
  	    "[-w timeout]\n"
- 	    "\t  [-X proxy_protocol] [-x proxy_address[:port]] "
+-	    "\t  [-X proxy_protocol] [-x proxy_address[:port]] "
 -	    "[-Z peercertfile]\n"
++	    "\t  [-X proxy_protocol] [-x proxy_address[:port]]\n"
  	    "\t  [destination] [port]\n");
  	if (ret)
  		exit(1);
