@@ -90,7 +90,7 @@ Subject: destination port list
  		if (s < 0)
  			err(1, NULL);
  
-@@ -1828,57 +1828,61 @@ strtoport(char *portstr, int udp)
+@@ -1835,57 +1835,61 @@ strtoport(char *portstr, int udp)
   * that we should try to connect to.
   */
  void

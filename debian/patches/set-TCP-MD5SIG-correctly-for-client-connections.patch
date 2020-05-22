@@ -67,7 +67,7 @@ Subject: Set TCP MD5SIG correctly for client connections
  
  		if (bind(s, (struct sockaddr *)res->ai_addr,
  		    res->ai_addrlen) == 0)
-@@ -1898,9 +1907,10 @@ udptest(int s)
+@@ -1905,9 +1914,10 @@ udptest(int s)
  }
  
  void
@@ -79,7 +79,7 @@ Subject: Set TCP MD5SIG correctly for client connections
  
  # if defined(SO_BROADCAST)
  	if (bflag) {
-@@ -1911,10 +1921,18 @@ set_common_sockopts(int s, int af)
+@@ -1918,10 +1928,18 @@ set_common_sockopts(int s, int af)
  			err(1, NULL);
  	}
  # endif

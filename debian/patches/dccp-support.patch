@@ -209,7 +209,7 @@ Subject: dccp support
  				    error == CONNECTION_TIMEOUT ? "timed out" : "failed");
  		}
  
-@@ -1757,7 +1819,8 @@ build_ports(char *p)
+@@ -1764,7 +1826,8 @@ build_ports(char *p)
  	int hi, lo, cp;
  	int x = 0;
  
@@ -219,7 +219,7 @@ Subject: dccp support
  	if (sv) {
  		if (asprintf(&portlist[0], "%d", ntohs(sv->s_port)) < 0)
  			err(1, "asprintf");
-@@ -2140,6 +2203,7 @@ help(void)
+@@ -2147,6 +2210,7 @@ help(void)
  	\t-w timeout	Timeout for connects and final net reads\n\
  	\t-X proto	Proxy protocol: \"4\", \"5\" (SOCKS) or \"connect\"\n\
  	\t-x addr[:port]\tSpecify proxy address and port\n\
@@ -227,7 +227,7 @@ Subject: dccp support
  	\t-z		Zero-I/O mode [used for scanning]\n\
  	Port numbers can be individual or ranges: lo-hi [inclusive]\n");
  	exit(0);
-@@ -2149,7 +2213,7 @@ void
+@@ -2156,7 +2220,7 @@ void
  usage(int ret)
  {
  	fprintf(stderr,

@@ -4,8 +4,8 @@ Subject: quit timer
 
 ---
  nc.1     |   10 ++++++++++
- netcat.c |   59 ++++++++++++++++++++++++++++++++++++++++++++++++-----------
- 2 files changed, 58 insertions(+), 11 deletions(-)
+ netcat.c |   60 +++++++++++++++++++++++++++++++++++++++++++++++++-----------
+ 2 files changed, 59 insertions(+), 11 deletions(-)
 
 --- a/nc.1
 +++ b/nc.1
@@ -126,7 +126,7 @@ Subject: quit timer
  		}
  		/* net in gone and queue empty? */
  		if (pfd[POLL_NETIN].fd == -1 && netinbufpos == 0) {
-@@ -2097,6 +2125,7 @@ help(void)
+@@ -2097,6 +2126,7 @@ help(void)
  	\t-O length	TCP send buffer length\n\
  	\t-P proxyuser\tUsername for proxy authentication\n\
  	\t-p port\t	Specify local port for remote connects\n\
@@ -134,14 +134,14 @@ Subject: quit timer
  	\t-r		Randomize remote ports\n\
  	\t-S		Enable the TCP MD5 signature option\n\
  	\t-s sourceaddr	Local source address\n\
-@@ -2121,10 +2144,18 @@ usage(int ret)
+@@ -2121,10 +2151,18 @@ usage(int ret)
  	fprintf(stderr,
  	    "usage: nc [-46CDdFhklNnrStUuvz] [-I length] [-i interval] [-M ttl]\n"
  	    "\t  [-m minttl] [-O length] [-P proxy_username] [-p source_port]\n"
 -	    "\t  [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit] "
-+	    "\t  [-q seconds] [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit]\n"
 -	    "[-w timeout]\n"
 -	    "\t  [-X proxy_protocol] [-x proxy_address[:port]]\n"
++	    "\t  [-q seconds] [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit]\n"
 +	    "\t  [-w timeout] [-X proxy_protocol] [-x proxy_address[:port]]\n"
  	    "\t  [destination] [port]\n");
  	if (ret)

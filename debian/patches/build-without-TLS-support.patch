@@ -8,8 +8,8 @@ that are already used by our Debian-specific patches.
 ---
  Makefile |    2 
  nc.1     |  114 ++---------------------------------------
- netcat.c |  172 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
- 3 files changed, 153 insertions(+), 135 deletions(-)
+ netcat.c |  174 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 3 files changed, 154 insertions(+), 136 deletions(-)
 
 --- a/Makefile
 +++ b/Makefile
