@@ -9,7 +9,7 @@ Subject: destination port list
 
 --- a/nc.1
 +++ b/nc.1
-@@ -414,15 +414,35 @@ The
+@@ -413,15 +413,35 @@ The
  flag can be used to tell
  .Nm
  to report open ports,
@@ -65,24 +65,23 @@ Subject: destination port list
  	int ch, s = -1, ret, socksv;
 -	char *host, *uport;
 +	char *host, **uport;
+ 	char ipaddr[NI_MAXHOST];
  	struct addrinfo hints;
  	struct servent *sv;
- 	socklen_t len;
-@@ -526,11 +526,11 @@ main(int argc, char *argv[])
- 	} else if (argv[0] && !argv[1]) {
- 		if (!lflag)
- 			usage(1);
+@@ -524,10 +524,10 @@ main(int argc, char *argv[])
+ 		if (zflag)
+ 			errx(1, "cannot use -z and -l");
+ 	} else if (argc == 1 && lflag) {
 -		uport = argv[0];
 +		uport = &argv[0];
- 		host = NULL;
- 	} else if (argv[0] && argv[1]) {
+ 	} else if (argc == 2) {
  		host = argv[0];
 -		uport = argv[1];
 +		uport = &argv[1];
  	} else
  		usage(1);
  
-@@ -718,7 +718,7 @@ main(int argc, char *argv[])
+@@ -726,7 +726,7 @@ main(int argc, char *argv[])
  			else
  				s = unix_listen(host);
  		} else
@@ -91,7 +90,7 @@ Subject: destination port list
  		if (s < 0)
  			err(1, NULL);
  
-@@ -1786,57 +1786,61 @@ strtoport(char *portstr, int udp)
+@@ -1828,57 +1828,61 @@ strtoport(char *portstr, int udp)
   * that we should try to connect to.
   */
  void

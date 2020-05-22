@@ -14,7 +14,7 @@ Subject: quit timer
  .Op Fl P Ar proxy_username
  .Op Fl p Ar source_port
 +.Op Fl q Ar seconds
- .Op Fl s Ar source
+ .Op Fl s Ar sourceaddr
  .Op Fl T Ar keyword
  .Op Fl V Ar rtable
 @@ -167,6 +168,15 @@ Proxy authentication is only supported f
@@ -52,7 +52,7 @@ Subject: quit timer
  int
  main(int argc, char *argv[])
  {
-@@ -256,9 +259,9 @@ main(int argc, char *argv[])
+@@ -257,9 +260,9 @@ main(int argc, char *argv[])
  
  	while ((ch = getopt(argc, argv,
  # if defined(TLS)
@@ -64,7 +64,7 @@ Subject: quit timer
  # endif
  	    != -1) {
  		switch (ch) {
-@@ -350,6 +353,13 @@ main(int argc, char *argv[])
+@@ -351,6 +354,13 @@ main(int argc, char *argv[])
  		case 'p':
  			pflag = optarg;
  			break;
@@ -78,7 +78,7 @@ Subject: quit timer
  # if defined(TLS)
  		case 'R':
  			tls_cachanged = 1;
-@@ -1320,15 +1330,27 @@ readwrite(int net_fd)
+@@ -1361,15 +1371,27 @@ readwrite(int net_fd)
  	while (1) {
  		/* both inputs are gone, buffers are empty, we are done */
  		if (pfd[POLL_STDIN].fd == -1 && pfd[POLL_NETIN].fd == -1 &&
@@ -112,20 +112,20 @@ Subject: quit timer
  
  		/* poll */
  		num_fds = poll(pfd, 4, timeout);
-@@ -2053,6 +2075,7 @@ help(void)
+@@ -2097,6 +2119,7 @@ help(void)
  	\t-O length	TCP send buffer length\n\
  	\t-P proxyuser\tUsername for proxy authentication\n\
  	\t-p port\t	Specify local port for remote connects\n\
 +	\t-q secs\t	quit after EOF on stdin and delay of secs\n\
  	\t-r		Randomize remote ports\n\
  	\t-S		Enable the TCP MD5 signature option\n\
- 	\t-s source	Local source address\n\
-@@ -2077,10 +2100,19 @@ usage(int ret)
+ 	\t-s sourceaddr	Local source address\n\
+@@ -2121,10 +2144,19 @@ usage(int ret)
  	fprintf(stderr,
  	    "usage: nc [-46CDdFhklNnrStUuvz] [-I length] [-i interval] [-M ttl]\n"
  	    "\t  [-m minttl] [-O length] [-P proxy_username] [-p source_port]\n"
--	    "\t  [-s source] [-T keyword] [-V rtable] [-W recvlimit] "
-+	    "\t  [-q seconds] [-s source] [-T keyword] [-V rtable] [-W recvlimit] "
+-	    "\t  [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit] "
++	    "\t  [-q seconds] [-s sourceaddr] [-T keyword] [-V rtable] [-W recvlimit] "
  	    "[-w timeout]\n"
  	    "\t  [-X proxy_protocol] [-x proxy_address[:port]] "
  	    "\t  [destination] [port]\n");
