@@ -4,8 +4,8 @@ Subject: quit timer
 
 ---
  nc.1     |   10 ++++++++++
- netcat.c |   50 +++++++++++++++++++++++++++++++++++++++++---------
- 2 files changed, 51 insertions(+), 9 deletions(-)
+ netcat.c |   59 ++++++++++++++++++++++++++++++++++++++++++++++++-----------
+ 2 files changed, 58 insertions(+), 11 deletions(-)
 
 --- a/nc.1
 +++ b/nc.1
@@ -112,7 +112,21 @@ Subject: quit timer
  
  		/* poll */
  		num_fds = poll(pfd, 4, timeout);
-@@ -2097,6 +2119,7 @@ help(void)
+@@ -1526,6 +1548,13 @@ readwrite(int net_fd)
+ 			if (pfd[POLL_NETOUT].fd != -1 && Nflag)
+ 				shutdown(pfd[POLL_NETOUT].fd, SHUT_WR);
+ 			pfd[POLL_NETOUT].fd = -1;
++ 			/* #817050: handle UDP sockets and kflag */
++			if ((lflag || uflag) && pfd[POLL_NETIN].fd != -1 &&
++			    qflag >= 0 && netinbufpos == 0) {
++				shutdown(pfd[POLL_NETIN].fd, SHUT_RD);
++				pfd[POLL_NETIN].fd = -1;
++				kflag = 0;
++			}
+ 		}
+ 		/* net in gone and queue empty? */
+ 		if (pfd[POLL_NETIN].fd == -1 && netinbufpos == 0) {
+@@ -2097,6 +2125,7 @@ help(void)
  	\t-O length	TCP send buffer length\n\
  	\t-P proxyuser\tUsername for proxy authentication\n\
  	\t-p port\t	Specify local port for remote connects\n\

@@ -15,6 +15,9 @@ netcat-openbsd (1.217-1) UNRELEASED; urgency=medium
     MD5 signature support.  The feature now requires the TCP_MD5SIG_EXT socket
     option, available since Linux 4.13.  Thanks to Thomas Habet for report and
     patch. (Closes: #954934)
+  * d/patches/quit-timer.patch: Make -q0 quit immediately also with UDP
+    sockets.  Many thanks to Duncan Roe for the help in debugging this.
+    (Closes: #817050)
 
  -- Guilhem Moulin <guilhem@debian.org>  Fri, 22 May 2020 23:32:20 +0200
 
