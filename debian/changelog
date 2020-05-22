@@ -3,6 +3,7 @@ netcat-openbsd (1.217-1) UNRELEASED; urgency=medium
   * d/control:
     + Set debhelper-compat version in Build-Depends.
     + Remove quilt from Build-Depends.
+    + Bump Standards-Version to 4.5.0 (no changes necessary).
   * d/copyright: Set fields Upstream-Name.
   * d/patches/set-TCP-MD5SIG-correctly-for-client-connections.patch: Fix TCP
     MD5 signature support.  The feature now requires the TCP_MD5SIG_EXT socket
