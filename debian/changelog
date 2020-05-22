@@ -7,6 +7,8 @@ netcat-openbsd (1.217-1) UNRELEASED; urgency=medium
     + Set 'Rules-Requires-Root: no'.
   * d/netcat-openbsd.{postinst,prerm}: set -e in the scripts themselves not on
     the shebang line.
+  * Add lintian override for
+    I: manpage-without-executable usr/share/man/man1/nc_openbsd.1.gz
   * d/copyright: Set fields Upstream-Name.
   * d/patches/set-TCP-MD5SIG-correctly-for-client-connections.patch: Fix TCP
     MD5 signature support.  The feature now requires the TCP_MD5SIG_EXT socket
