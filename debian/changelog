@@ -5,6 +5,8 @@ netcat-openbsd (1.217-1) UNRELEASED; urgency=medium
     + Remove quilt from Build-Depends.
     + Bump Standards-Version to 4.5.0 (no changes necessary).
     + Set 'Rules-Requires-Root: no'.
+  * d/netcat-openbsd.{postinst,prerm}: set -e in the scripts themselves not on
+    the shebang line.
   * d/copyright: Set fields Upstream-Name.
   * d/patches/set-TCP-MD5SIG-correctly-for-client-connections.patch: Fix TCP
     MD5 signature support.  The feature now requires the TCP_MD5SIG_EXT socket
