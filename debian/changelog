@@ -1,3 +1,9 @@
+netcat-openbsd (1.217-3) UNRELEASED; urgency=low
+
+  * Rely on pre-initialized dpkg-architecture variables.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Sun, 14 Jun 2020 20:42:08 -0000
+
 netcat-openbsd (1.217-2) unstable; urgency=low
 
   * d/patches: Make getnameinfo(3) errors non-fatal in report_sock():
