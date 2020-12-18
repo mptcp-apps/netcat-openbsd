@@ -6,6 +6,7 @@ netcat-openbsd (1.217-3) UNRELEASED; urgency=low
 
   [ Guilhem Moulin ]
   * d/control: Bump Standards-Version to 4.5.1 (no changes necessary).
+  * Add debian/salsa-ci.yml file for GitLab CI.
 
  -- Guilhem Moulin <guilhem@debian.org>  Fri, 18 Dec 2020 23:48:17 +0100
 
