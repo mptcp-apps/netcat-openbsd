@@ -1,4 +1,4 @@
-netcat-openbsd (1.217-3) UNRELEASED; urgency=low
+netcat-openbsd (1.217-3) unstable; urgency=low
 
   [ Debian Janitor ]
   * Rely on pre-initialized dpkg-architecture variables.
@@ -9,7 +9,7 @@ netcat-openbsd (1.217-3) UNRELEASED; urgency=low
   * Add debian/salsa-ci.yml file for GitLab CI.
   * Rename 'master' (default) branch to 'debian/latest' for DEP-14 compliance.
 
- -- Guilhem Moulin <guilhem@debian.org>  Fri, 18 Dec 2020 23:48:17 +0100
+ -- Guilhem Moulin <guilhem@debian.org>  Sat, 19 Dec 2020 00:11:23 +0100
 
 netcat-openbsd (1.217-2) unstable; urgency=low
 
