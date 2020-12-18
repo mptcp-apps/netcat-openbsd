@@ -1,9 +1,13 @@
 netcat-openbsd (1.217-3) UNRELEASED; urgency=low
 
+  [ Debian Janitor ]
   * Rely on pre-initialized dpkg-architecture variables.
   * Update renamed lintian tag names in lintian overrides.
 
- -- Debian Janitor <janitor@jelmer.uk>  Sun, 14 Jun 2020 20:42:08 -0000
+  [ Guilhem Moulin ]
+  * d/control: Bump Standards-Version to 4.5.1 (no changes necessary).
+
+ -- Guilhem Moulin <guilhem@debian.org>  Fri, 18 Dec 2020 23:48:17 +0100
 
 netcat-openbsd (1.217-2) unstable; urgency=low
 
