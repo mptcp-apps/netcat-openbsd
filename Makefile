@@ -2,7 +2,18 @@
 
 PROG=	nc
 SRCS=	netcat.c atomicio.c socks.c
-LDADD+= -ltls -lssl -lcrypto
-DPADD+=  ${LIBTLS} ${LIBSSL} ${LIBCRYPTO}
 
-.include <bsd.prog.mk>
+LIBS=  `pkg-config --libs libbsd` -lresolv
+OBJS=  $(SRCS:.c=.o)
+CFLAGS=  -g -O2 -DMPTCP
+LDFLAGS=  -Wl,--no-add-needed
+
+all: nc
+nc: $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) $(LIBS) -o nc
+
+$(OBJS): %.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS) nc
